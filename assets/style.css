@@ -1,0 +1,14 @@
+*{
+    background-color: beige;
+}
+
+#welcomeContainer{
+position: absolute;
+left: 30%;
+top: 20%;
+width: 500px;
+height: 500px;
+border: 1px solid purple;
+}
+
+

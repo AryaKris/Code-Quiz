@@ -1,6 +1,19 @@
-var startBtn = document.querySelector ("#startBtn")
+// declaring variables 
+var startBtn = document.querySelector ("#startBtn");
+var welcomeContainer = document.querySelector ("#welcomeContainer");
+var questions = document.querySelector ("#questions");
 
-var startGame = function () {
+
+//Listen for any clicks in the startBtn 
+startBtn.addEventListener("click", startGame);
+
+// Start Quiz function
+var startGame = function () { 
+    startTimer();
+    startQuestion();
 
 }
-startBtn.addEventListener("click",startGame);
+function startQuestion () {
+    welcomeContainer.style.display ="none";
+    
+}
