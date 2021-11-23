@@ -1,24 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Title -->
-    <title>Javascript Quiz Game</title>
-    <!-- style links -->
+    
+    <!-- stylesheet links -->
     <link rel="stylesheet" href= "./assets/style.css">
+    <!-- Title -->
+    <title>Javascript Code Quiz</title>
 </head>
 
 <body>
- <div id = "welcomeContainer"> 
-     <h1>Welcome to my quiz game</h1>
-     <h5>Try answering the Javascript multiple choice questions within the time limit. For each incorrect answers you will be losing 10 seconds.</h5>
-     <button class ="startBtn" data-state = "visible">Start Quiz</button>
-    </div>  
-    <div id =" questions"></div>
-    <div id = "score"></div>
-    <div id="highscores"></div>
+    <header>
+        <input id="view-scores" type="button" value="View Scores">
+        <span id="timer">Time: 0</span>
+        
+        <div class="topic">Javascript Code Quiz </div>
+        
+    </header>
+<main>
+    <section>
+        <div class="welcome-container">
+            <div id="welcome-text">
+                <p>This timed coding quiz will assess your Javascript knowledge. You will be asked 5 multiple choice questions and will be given 100 S to answer.</p> 
+                <p>For each wrong answer you will be losing 20 S from the timer. </p>
+
+                </div>
+            <button id="start-button">Start Quiz</button>
+            <div id="scores-div"></div>
+            <br>
+            <div id="question-div"></div>
+            <br>
+            <div id="choices"></div>
+            <br>
+            <form id="results"></form>
+
+        </div>
+    </section>
+
+</main>
+  
     <script src = "./assets/javascript.js"></script>
+    <script src="assets/questions.js"></script>
+
 </body>
 </html>

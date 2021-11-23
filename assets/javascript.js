@@ -1,19 +1,15 @@
-// declaring variables 
-var startBtn = document.querySelector ("#startBtn");
-var welcomeContainer = document.querySelector ("#welcomeContainer");
-var questions = document.querySelector ("#questions");
 
 
-//Listen for any clicks in the startBtn 
-startBtn.addEventListener("click", startGame);
+// Adding an event listener where the user can click the start button and will be taken to the questions section
+document.getElementById("start-button").addEventListener("click", function () {
 
-// Start Quiz function
-var startGame = function () { 
-    startTimer();
-    startQuestion();
+    var welcometxt = document.getElementById("welcome-text");
+    var newHtmlElement = document.createElement("span");
+    newHtmlElement.innerHTML = "Bring a question html dom here";
+    welcometxt.parentNode.replaceChild(newHtmlElement, welcometxt);
 
-}
-function startQuestion () {
-    welcomeContainer.style.display ="none";
-    
-}
+    var str_button = document.getElementById("start-button");
+    var newHtmlButton = document.createElement("button");
+    newHtmlButton.innerHTML = "Next Question";
+    str_button.parentNode.replaceChild(newHtmlButton, str_button);
+});
