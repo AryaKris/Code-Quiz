@@ -1,5 +1,6 @@
 var questionNum=0;
 function showQuestion () {
+    startTimer();
 
     var welcometxt = document.querySelector(".welcome-container");
     welcometxt.innerHTML = ""
@@ -24,11 +25,8 @@ function showQuestion () {
     answerFour.innerHTML = questions[questionNum].multiChoice[3];
     str_button.appendChild(answerFour);
     answerFour.onclick = checkAnswer
-    var answerFive = document.createElement("button");
-    answerFive.innerHTML = questions[questionNum].multiChoice[4];
-    str_button.appendChild(answerFive);
-    answerFive.onclick = checkAnswer
-    startTimer()
+    
+   
 
 
 }

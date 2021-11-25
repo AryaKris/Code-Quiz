@@ -13,8 +13,8 @@ var questions = [
 
     {
         title: "Inside which HTML element do we put the JavaScript?",
-        multiChoice: ["<script>", "<head>", "<meta>", "<style>"],
-        answer: "<script>"
+        multiChoice: ["script", "head", "meta", "style"],
+        answer: "script"
     },
 
     {
