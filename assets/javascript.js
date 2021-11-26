@@ -1,59 +1,53 @@
-var questionNum=0;
-function showQuestion () {
-    startTimer();
+var currentQuestionIndex = 0;
+var questionChoice = questions.length;
+// Adding an event listener where the user can click the start button and will be taken to the questions section
+document.getElementById("start-button").addEventListener("click",showQuestion );
 
+function showQuestion() {
+    startTimer();
+    // query selector Returns the first child element that matches a specified CSS selector(s) of an element
     var welcometxt = document.querySelector(".welcome-container");
+    // inner html Sets or returns the content of an element
     welcometxt.innerHTML = ""
+    console.log("currentQuestionIndex: ", currentQuestionIndex);
+    var choiceSize = questions[currentQuestionIndex].multiChoice.length;
     var questionEl = document.createElement("span");
-    questionEl.innerHTML = questions[questionNum].title;
+    questionEl.innerHTML = questions[currentQuestionIndex].title;
     welcometxt.appendChild(questionEl);
 
     var str_button = document.querySelector(".welcome-container");
-    var answerOne = document.createElement("button");
-    answerOne.innerHTML = questions[questionNum].multiChoice[0];
-    str_button.appendChild(answerOne);
-    answerOne.onclick = checkAnswer
-    var answerTwo = document.createElement("button");
-    answerTwo.innerHTML = questions[questionNum].multiChoice[1];
-    str_button.appendChild(answerTwo);
-    answerTwo.onclick = checkAnswer
-    var answerThree = document.createElement("button");
-    answerThree.innerHTML = questions[questionNum].multiChoice[2];
-    str_button.appendChild(answerThree);
-    answerThree.onclick = checkAnswer
-    var answerFour = document.createElement("button");
-    answerFour.innerHTML = questions[questionNum].multiChoice[3];
-    str_button.appendChild(answerFour);
-    answerFour.onclick = checkAnswer
-    
-   
 
+    for (i = 0; i < choiceSize; i++) {
+        var answerchoice = document.createElement("button");
+        answerchoice.innerHTML = questions[currentQuestionIndex].multiChoice[i];
+        str_button.appendChild(answerchoice);
+        answerchoice.onclick = checkAnswer;
+    }
+}
 
+function checkAnswer(event) {
+    if (!questions[currentQuestionIndex].answer === event.target.textContent) {
+        console.log("wrong answer selected");
+        time = time - 10;
+    }
+    console.log("currentQuestionIndex_1: ", currentQuestionIndex);
+    if (currentQuestionIndex < questionChoice-1){
+        currentQuestionIndex++;
+        showQuestion();
+    }
 }
-// Adding an event listener where the user can click the start button and will be taken to the questions section
-document.getElementById("start-button").addEventListener("click",showQuestion );
-function checkAnswer(event){
-console.log(event.target.textContent)
-console.log(questions[questionNum].answer)
-if (questions[questionNum].answer ===event.target.textContent){
-    
-    console.log("correct")
-    
-}
-else {
-    time=time-10;
-}
- questionNum = questionNum +1 
-showQuestion()
-}
-var time = 75;
-var timeEl = document.querySelector ("#timer");
-function startTimer () {
-    var myfunc = setInterval(function () {
-        // code goes here
-time--
-timeEl.textContent = "Time: "+ time ;
-    }, 1000)
 
+var timeleft = 75;
+var timeEl = document.querySelector("#timer");
+function startTimer() {
+    setInterval(function () {
+        if (timeleft <= 0) {
+            clearInterval(startTimer);
+            timeEl.innerHTML = "Finished";
+        } else {
+            timeEl.innerHTML = timeleft + " seconds remaining";
+        }
+        timeleft -= 1;
+    }, 1000);
 }
 
