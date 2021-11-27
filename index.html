@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <!-- stylesheet links -->
-    <link rel="stylesheet" href= "./assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <!-- Title -->
     <title>Javascript Code Quiz</title>
 </head>
 
 <body>
     <header>
-        <input id="view-scores" type="button" value="View Scores">
+        <input id="view-scores" type="button" value="View Scores" onclick="viewScores()">
         <div class="initials">
         </div>
         <span id="timer">Time: 0</span>
-        
         <div class="topic">Javascript Code Quiz </div>
-        
     </header>
-<main>
-    <section>
-        <div class="welcome-container">
-            <div id="welcome-text">
-                <p>This timed coding quiz will assess your Javascript knowledge. You will be asked 5 multiple choice questions and will be given 60 S to answer.</p> 
-                <p>For each wrong answer you will be losing 10 S from the timer. </p>
 
+    <main>
+        <section>
+            <div class="row">
+                <div class="welcome-container">
+                    <div id="welcome-text">
+                        <h2>
+                            This timed coding quiz will assess your Javascript knowledge.
+                            You will be asked 5 multiple choice questions and will be given 60 Sec to answer.
+                            For each wrong answer you will be losing 10 S from the timer.
+                        </h2>
+                    </div>
+                    <button id="start-button">Start Quiz</button>
+                    <div id="quizContent"></div>
+                    <div id="scores-section"></div>
+                    <br>
+                    <div id="highScores"></div>
+                    <br>
                 </div>
-            <div id = "result-page"></div>
-            <button id="start-button">Start Quiz</button>
-            <div id="scores-div"></div>
-            <br>
-            <div id="question-div"></div>
-            <br>
-           
-    </section>
-
-</main>
-
+            </div>
+        </section>
+    </main>
     <script src="assets/questions.js"></script>
-    <script src = "./assets/javascript.js"></script>
-   
-
+    <script src="assets/javascript.js"></script>
 </body>
+
 </html>
