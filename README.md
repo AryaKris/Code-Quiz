@@ -17,4 +17,6 @@ The reset button clears the local storage and the go back button takes you to th
 I have added 2 external javascript files - one for the quiz questions and the second one for all the functions to make the quiz interactive. 
 
 Link to the deployed page - https://aryakris.github.io/Code-Quiz/
-[alt text](https://github.com/AryaKris/Code-Quiz/blob/main/assets/Images/Screen%20Shot%202021-11-28%20at%2011.06.34.png)
+
+## Image
+![alt text](https://github.com/AryaKris/Code-Quiz/blob/main/assets/Images/Screen%20Shot%202021-11-28%20at%2011.06.34.png)
