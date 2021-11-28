@@ -6,6 +6,8 @@ var timeEl = document.querySelector("#timer");
 // query selector Returns the first child element that matches a specified CSS selector(s) of an element
 var welcometxt = document.querySelector(".welcome-container");
 var scoresSection = document.querySelector("#scoressection");
+var highScoresSection = document.querySelector("#highScores");
+var mainsection = document.querySelector("#mainsection");
 // checks if all the answers were incorrect
 var correctAnswersCount = 0;
 
@@ -108,7 +110,7 @@ function showQuestion() {
 function viewResultPage() {
     console.log("viewResult Page: ", currentQuestionIndex, " ", timeleft);
     // inner html Sets or returns the content of an element
-    welcometxt.innerHTML = ""
+    welcometxt.innerHTML = "";
     var allDoneEl = document.createElement("span");
     // allDoneEl.setAttribute("style", "float: center; position: relative;");
     allDoneEl.innerHTML = "Quiz is over and final score is: " + timeleft;
@@ -116,6 +118,7 @@ function viewResultPage() {
     // scoresSection.innerHTML = "";
     // create a form for accepting the initial
     var inputForm = document.createElement("form");
+    inputForm.setAttribute("id", "inputForm");
 
     //Add an input element to form
     var inputText = document.createElement("input");
@@ -135,30 +138,82 @@ function viewResultPage() {
     // create a key value pair and save the initial and score as an object as the value. Key is some unique id
     submitBtn.addEventListener("click", function (event) {
         var inputinitials = document.getElementById("initialstext").value;
-        console.log("text" + " " + inputinitials + " " + timeleft);
-        
-    });
-    //  or as json as mentioned
-    // store this as session storage
-}
 
+        //  or as json as mentioned
+        var highScores = JSON.parse(localStorage.getItem("highScores"));
+        if (!Array.isArray(highScores) || !highScores.length) {
+            var highScores = [];
+        }
+        var highScore = {
+            inputinitials : inputinitials,
+            highScores: timeleft
+        };
+        highScores.push(highScore);
+        // store this as session storage
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+        viewScores();
+});
+
+}
 // when the user clocks the viewscores button he should be able to see the stored value of the highscores
 var score = 0;
-var highScores = [];
+
 
 // call this function from the index.html page using onclick functionality
 function viewScores() {
-    // Nullify the Welcome text , welcometxt.innerHTML = ""
-    // retrieve the entire values from session storage
-    // new create div element to show the scores
-    // create another element as a button for go back
-    // show the scores in the first div element
-    // append them to the welcometext
-    // onclick of go back button, call the welcome screen href=https://127.0.0.1/index.html
-}
+    
+    var inform = document.querySelector("#inputForm");
+    var sb  = document.querySelector("#submitBtn");
+    if (sb != null && inform != null){
+        sb.remove();
+        inform.remove();
+    }
+    welcometxt.remove();    
+    
+    var highScores = JSON.parse(localStorage.getItem("highScores"));
+    if (highScores !== null) {
+        var highScoresSize = highScores.length;
+        var nameSection = document.createElement("div");
+        nameSection.innerHTML = "Name   Scores";
+        nameSection.setAttribute("style","font-size: 15px; font-weight: bold;");
+        highScoresSection.appendChild(nameSection);
+        
+        var scoresListSection = document.createElement("div");
+        scoresListSection.setAttribute("id","scoresListSection");
+        for (var h = 0; h < highScoresSize ; h++){
+            var scoreList = document.createElement("li");
+            scoreList.innerHTML = highScores[h].inputinitials + "   "+highScores[h].highScores;
+            scoresListSection.appendChild(scoreList);
+        }
+        highScoresSection.appendChild(scoresListSection);
+    }
 
-// in view score form, get the value of the high score from the session storage and show it here in the new function
-function storeHighScore() {
-    // stringify and set key in local storage to highscores array
-    var storedHighscores = JSON.parse(localStorage.getItem("highScores"));
+    // if (document.querySelector("#goBackButton") !=null){
+    //     document.querySelector("#goBackButton").remove();
+    // }
+    // if (document.querySelector("#clearlocalstorageBtn") != null) {
+    //     document.querySelector("#clearlocalstorageBtn").remove();
+    // }
+
+    var goBackBtn = document.createElement("button");
+    goBackBtn.setAttribute("id", "goBackButton");
+    goBackBtn.setAttribute("style", "position: relative; transition: .5s ease; top: 10 %; left: 45%; padding: 10px 22px; margin: 10px; cursor: pointer; font-size: 18px; background-color: #4CAF50; color: white;");
+    goBackBtn.innerHTML = "GoBack";
+    mainsection.appendChild(goBackBtn);
+    goBackBtn.onclick = function () {        
+        window.location.reload();
+    }
+
+    var clearlocalstorageBtn = document.createElement("button");
+    clearlocalstorageBtn.setAttribute("id", "clearlocalstorageBtn");
+    clearlocalstorageBtn.setAttribute("style", "position: relative; transition: .5s ease; top: 10 %; left: 45%; padding: 10px 22px; margin: 10px; cursor: pointer; font-size: 18px; background-color: #4CAF50; color: white;");
+    clearlocalstorageBtn.innerHTML = "RESET BUTTON";
+    mainsection.appendChild(clearlocalstorageBtn);
+    clearlocalstorageBtn.onclick = function () {
+        window.localStorage.clear();
+        if (document.querySelector("#scoresListSection")!=null){
+            document.querySelector("#scoresListSection").remove();
+
+        }
+    }
 }
