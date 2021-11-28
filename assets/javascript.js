@@ -187,11 +187,12 @@ function viewScores() {
         }
         highScoresSection.appendChild(scoresListSection);
     }
-    
+
     var goBackBtn = document.createElement("button");
     goBackBtn.setAttribute("id", "goBackButton");
     goBackBtn.setAttribute("style", "position: relative; transition: .5s ease; top: 10 %; left: 45%; padding: 10px 22px; margin: 10px; cursor: pointer; font-size: 18px; background-color: #4CAF50; color: white;");
-    goBackBtn.innerHTML = "GoBack";
+    goBackBtn.setAttribute("title", "Go back to Home page");
+    goBackBtn.innerHTML = "GO BACK";    
     mainsection.appendChild(goBackBtn);
     goBackBtn.onclick = function () {        
         window.location.reload();
@@ -200,7 +201,8 @@ function viewScores() {
     var clearlocalstorageBtn = document.createElement("button");
     clearlocalstorageBtn.setAttribute("id", "clearlocalstorageBtn");
     clearlocalstorageBtn.setAttribute("style", "position: relative; transition: .5s ease; top: 10 %; left: 45%; padding: 10px 22px; margin: 10px; cursor: pointer; font-size: 18px; background-color: #4CAF50; color: white;");
-    clearlocalstorageBtn.innerHTML = "RESET BUTTON";
+    clearlocalstorageBtn.setAttribute("title", "Clears all the scores");
+    clearlocalstorageBtn.innerHTML = "RESET BUTTON";    
     mainsection.appendChild(clearlocalstorageBtn);
     clearlocalstorageBtn.onclick = function () {
         window.localStorage.clear();
