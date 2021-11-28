@@ -11,6 +11,7 @@ If the user selects all the questions wrong the final score would display as zer
 Once the quiz has been completed or if the user ran out of time he should be able to provide his initials and submit it. For this I created a form element and submit button. 
 # Local storage
 Final step was saving the scores and initial to the local storage. The local storage stores data even after the browser is closed. Local storage can only use strings to store the data and hence made use of JSON stringify() method. When the user clicks the view store button at the top left end he would be able to see the stored initials and highscores. 
+![alt text](https://github.com/AryaKris/Code-Quiz/blob/main/assets/Images/Screen%20Shot%202021-11-28%20at%2014.47.14.png)
 # Reset and Go Back buttons 
 The reset button clears the local storage and the go back button takes you to the home page. 
 # External Javascript files
