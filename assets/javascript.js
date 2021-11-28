@@ -187,14 +187,7 @@ function viewScores() {
         }
         highScoresSection.appendChild(scoresListSection);
     }
-
-    // if (document.querySelector("#goBackButton") !=null){
-    //     document.querySelector("#goBackButton").remove();
-    // }
-    // if (document.querySelector("#clearlocalstorageBtn") != null) {
-    //     document.querySelector("#clearlocalstorageBtn").remove();
-    // }
-
+    
     var goBackBtn = document.createElement("button");
     goBackBtn.setAttribute("id", "goBackButton");
     goBackBtn.setAttribute("style", "position: relative; transition: .5s ease; top: 10 %; left: 45%; padding: 10px 22px; margin: 10px; cursor: pointer; font-size: 18px; background-color: #4CAF50; color: white;");
