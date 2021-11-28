@@ -7,6 +7,12 @@ The user should be able to click the start quiz button. On clicking the start bu
 # Timer 
 Timer should be running once the quiz starts and should stop once the quiz ends. The remianing time of the timer should be displayed as the final score. Also, for each wrong answer the user should be losing 10 seconds from the timer. 
 If the user selects all the questions wrong the final score would display as zero. 
+# Initials and submit button
+Once the quiz has been completed or if the user ran out of time he should be able to provide his initials and submit it. For this I created a form element and submit button. 
+# Local storage
+Final step was saving the scores and initial to the local storage. The local storage stores data even after the browser is closed. Local storage can only use strings to store the data and hence made use of JSON stringify() method. When the user clicks the view store button at the top left end he would be able to see the stored initials and highscores. 
+# Reset and Go Back buttons 
+The reset button clears the local storage and the go back button takes you to the home page. 
 # External Javascript files
 I have added 2 external javascript files - one for the quiz questions and the second one for all the functions to make the quiz interactive. 
 
