@@ -85,11 +85,24 @@ function viewResultPage() {
     var allDoneEl = document.createElement("span");
     allDoneEl.innerHTML = "Quiz is over and final score is: " + timeleft;
     welcometxt.appendChild(allDoneEl);
+    // Create a form
+    const f = document.createElement("form"); 
+    const input = document.createElement("input");
+    f.appendChild(input);
+    // Add it to the document body
+    welcometxt.appendChild(f);
+    
+
+           
+    
 }
 
 // when the user clocks the viewscores button he should be able to see the stored value of the highscores
 var score = 0;
+// an empty array to hold the highscores
 var highScores = [];
+
+var storedHighscores = JSON.parse(localStorage.getItem("highSCores"));
 
 function viewScores() {
 
@@ -98,5 +111,5 @@ function viewScores() {
 // in view score form, get the value of the high score from the session storage and show it here in the new function
 function storeHighScore() {
     // stringify and set key in local storage to highscores array
-    var storedHighscores = JSON.parse(localStorage.getItem("highScores"));
+   
 }

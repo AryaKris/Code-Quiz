@@ -15,8 +15,7 @@
 <body>
     <header>
         <input id="view-scores" type="button" value="View Scores" onclick="viewScores()">
-        <div class="initials">
-        </div>
+       
         <span id="timer">Time: 0</span>
         <div class="topic">Javascript Code Quiz </div>
     </header>
@@ -28,12 +27,22 @@
                     <div id="welcome-text">
                         <h2>
                             This timed coding quiz will assess your Javascript knowledge.
-                            You will be asked 5 multiple choice questions and will be given 60 Sec to answer.
+                            You will be asked 5 multiple choice questions and will be given 75 Sec to answer.
                             For each wrong answer you will be losing 10 S from the timer.
                         </h2>
                     </div>
                     <button id="start-button">Start Quiz</button>
                     <div id="quizContent"></div>
+                    <!-- <form method="GET">
+                    <div class="input-group">
+                    <label for="initials">Initials</label>
+                    <input type="text" name="initials" id="initials"/>
+                    <br>
+                    <div id="msg"></div>
+                    <button id="submit">Submit</button>
+
+                    </form> -->
+                    
                     <div id="scores-section"></div>
                     <br>
                     <div id="highScores"></div>
