@@ -161,7 +161,7 @@ var score = 0;
 
 // call this function from the index.html page using onclick functionality
 function viewScores() {
-    
+   
     var inform = document.querySelector("#inputForm");
     var sb  = document.querySelector("#submitBtn");
     if (sb != null && inform != null){
@@ -176,8 +176,8 @@ function viewScores() {
         var nameSection = document.createElement("div");
         nameSection.innerHTML = "Name   Scores";
         nameSection.setAttribute("style","font-size: 15px; font-weight: bold;");
+        highScoresSection.innerHTML ="";
         highScoresSection.appendChild(nameSection);
-        
         var scoresListSection = document.createElement("div");
         scoresListSection.setAttribute("id","scoresListSection");
         for (var h = 0; h < highScoresSize ; h++){
@@ -187,13 +187,13 @@ function viewScores() {
         }
         highScoresSection.appendChild(scoresListSection);
     }
-
+   
     var goBackBtn = document.createElement("button");
     goBackBtn.setAttribute("id", "goBackButton");
     goBackBtn.setAttribute("style", "position: relative; transition: .5s ease; top: 10 %; left: 45%; padding: 10px 22px; margin: 10px; cursor: pointer; font-size: 18px; background-color: #4CAF50; color: white;");
     goBackBtn.setAttribute("title", "Go back to Home page");
     goBackBtn.innerHTML = "GO BACK";    
-    mainsection.appendChild(goBackBtn);
+   highScoresSection.appendChild(goBackBtn);
     goBackBtn.onclick = function () {        
         window.location.reload();
     }
@@ -203,7 +203,7 @@ function viewScores() {
     clearlocalstorageBtn.setAttribute("style", "position: relative; transition: .5s ease; top: 10 %; left: 45%; padding: 10px 22px; margin: 10px; cursor: pointer; font-size: 18px; background-color: #4CAF50; color: white;");
     clearlocalstorageBtn.setAttribute("title", "Clears all the scores");
     clearlocalstorageBtn.innerHTML = "RESET BUTTON";    
-    mainsection.appendChild(clearlocalstorageBtn);
+   highScoresSection.appendChild(clearlocalstorageBtn);
     clearlocalstorageBtn.onclick = function () {
         window.localStorage.clear();
         if (document.querySelector("#scoresListSection")!=null){
